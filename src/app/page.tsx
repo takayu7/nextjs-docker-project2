@@ -1,103 +1,96 @@
-import Image from "next/image";
+import Link from 'next/link';
+import Head from 'next/head';
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-blue-600 to-blue-800">
+      <Head>
+        <title>Next.js + PostgreSQL App</title>
+        <meta name="description" content="Next.js with PostgreSQL integration" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+      <main className="container mx-auto px-4 py-16 flex flex-col items-center justify-center min-h-screen">
+        <div className="text-center mb-12">
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
+            🚀 Next.js + PostgreSQL
+          </h1>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl w-full">
+          {/* ユーザー一覧カード */}
+          <Link
+            href="/pages/users"
+            className="group relative bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+          >
+            <div className="flex items-center mb-4">
+              <span className="text-3xl mr-3">👥</span>
+              <h2 className="text-2xl font-semibold text-white group-hover:text-blue-200">
+                ユーザー一覧
+              </h2>
+              <svg className="w-5 h-5 ml-auto text-white/60 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+            <p className="text-blue-100 group-hover:text-white transition-colors">
+              データベースに登録されたユーザー情報を表示します
+            </p>
+          </Link>
+          {/* API Routesカード */}
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="/api/users"
             target="_blank"
             rel="noopener noreferrer"
+            className="group relative bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+            <div className="flex items-center mb-4">
+              <span className="text-3xl mr-3">📚</span>
+              <h2 className="text-2xl font-semibold text-white group-hover:text-blue-200">
+                API Routes
+              </h2>
+              <svg className="w-4 h-4 ml-auto text-white/60 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </div>
+            <p className="text-blue-100 group-hover:text-white transition-colors">
+              RESTful API エンドポイント (/api/users)
+            </p>
+            <div className="mt-4 flex items-center text-sm">
+              <span className="bg-green-500/20 text-green-300 px-2 py-1 rounded text-xs font-mono">
+                GET
+              </span>
+              <span className="text-blue-300 ml-2">JSON形式で取得</span>
+            </div>
           </a>
         </div>
+
+        {/* 技術スタック */}
+        <div className="mt-16 text-center">
+          <h3 className="text-xl font-semibold text-white mb-4">🛠️ 技術スタック</h3>
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              'Next.js',
+              'TypeScript',
+              'Tailwind CSS',
+              'PostgreSQL',
+              'Docker',
+              'pgAdmin'
+            ].map((tech) => (
+              <span
+                key={tech}
+                className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium border border-white/30"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* フッター */}
+        <footer className="mt-12 text-center text-blue-200 text-sm">
+          <p>Docker Compose で構築されたフルスタックアプリケーション</p>
+        </footer>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
