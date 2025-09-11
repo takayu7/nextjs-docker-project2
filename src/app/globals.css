@@ -1,5 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+/* @import "tailwindcss/preflight";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "tw-animate-css"; */
 
 @custom-variant dark (&:is(.dark *));
 
@@ -111,6 +115,17 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 }
+  /* 文字関連 */
+/* 
+@layer components {
+  .titleText {
+    @apply text-title text-2xl;
+  }
+  .subtitleText {
+    @apply text-subtitle text-base;
+  }
+}
+*/
 
 @layer base {
   * {

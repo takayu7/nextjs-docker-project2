@@ -1,0 +1,22 @@
+@keyframes arrow-move-x {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(40px);
+  }
+  90% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+}
+
+.animate-arrow-x {
+  animation: arrow-move-x 1.2s linear infinite;
+}
